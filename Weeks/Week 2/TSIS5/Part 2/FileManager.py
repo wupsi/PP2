@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 import os
 import os.path
 from os.path import isfile

@@ -5,7 +5,7 @@ from os.path import isfile
 
 def Russian_menu():
     print(
-    '''
+        '''
 -------------------------------------------------------------------------
         • Переместиться в предыдущую папку
 
@@ -36,7 +36,7 @@ def Russian_menu():
 
 def English_menu():
     print(
-    '''
+        '''
 -------------------------------------------------------------------------
         • Move to the previous folder
 
@@ -80,14 +80,15 @@ def Move_prev():
 def Move_another():
 
     if language:
-        Enter = input('Введите название папки, в которую хотите переместиться: ')
+        Enter = input(
+            'Введите название папки, в которую хотите переместиться: ')
         if Enter:
             os.chdir(Enter)
             print('Ваше текущее расположение:', os.getcwd())
         else:
             print(f'Папки с названием {Enter} не существует!')
         return Russian_menu()
-    
+
     else:
         Enter = input('Enter the name of the folder you want to move to: ')
         if Enter:
@@ -99,51 +100,53 @@ def Move_another():
 
 
 def All_folders():
-    
+
     if language:
-        for root, dirs, files in os.walk("."):  
+        for root, dirs, files in os.walk("."):
             print(root)
         return Russian_menu()
 
     else:
-        for root, dirs, files in os.walk("."):  
+        for root, dirs, files in os.walk("."):
             print(root)
         return English_menu()
 
 
 def All_files():
     all_files = []
-    
-    for root, dirs, files in os.walk("."):  
-       for filename in files:
-           path = os.path.join(root, filename)
-           all_files.append(path)
-    
+
+    for root, dirs, files in os.walk("."):
+        for filename in files:
+            path = os.path.join(root, filename)
+            all_files.append(path)
+
     if language:
         print('Все файлы в текущей папке и подпапках:')
         for path in all_files:
-            print(path)        
+            print(path)
         return Russian_menu()
 
     else:
         print('All files in the current folder and subfolders:')
         for path in all_files:
-            print(path)        
+            print(path)
         return English_menu()
-    
+
+
 def Delete_file():
     all_files = []
-    
-    for root, dirs, files in os.walk("."):  
-       for filename in files:
-           path = os.path.join(root, filename)
-           all_files.append(path)
+
+    for root, dirs, files in os.walk("."):
+        for filename in files:
+            path = os.path.join(root, filename)
+            all_files.append(path)
 
     for i in all_files:
         print(i)
 
     if language:
-        path = input('Введите полное название файла вместе с директорией, которое хотите удалить: ')
+        path = input(
+            'Введите полное название файла вместе с директорией, которое хотите удалить: ')
         if path:
             os.remove(path)
             print(f'Файл с названием {path} удален.')
@@ -152,10 +155,11 @@ def Delete_file():
         return Russian_menu()
 
     else:
-        path = input('Enter the full name of the file along with the directory you want to delete: ')
+        path = input(
+            'Enter the full name of the file along with the directory you want to delete: ')
         if path:
             os.remove(path)
-            print(f'File with name {path} deleted.')        
+            print(f'File with name {path} deleted.')
         else:
             print(f"File with name {path} doesn't esixts!")
         return English_menu()
@@ -163,17 +167,18 @@ def Delete_file():
 
 def Rename_filename():
     all_files = []
-    
-    for root, dirs, files in os.walk("."):  
-       for filename in files:
-           path = os.path.join(root, filename)
-           all_files.append(path)
+
+    for root, dirs, files in os.walk("."):
+        for filename in files:
+            path = os.path.join(root, filename)
+            all_files.append(path)
 
     for i in all_files:
         print(i)
 
     if language:
-        path = input('Введите полное название файла вместе с директорией, которое хотите переименовать: ')
+        path = input(
+            'Введите полное название файла вместе с директорией, которое хотите переименовать: ')
         if path:
             renamed = input('Введите новое название для файла: ')
             os.rename(path, renamed)
@@ -183,24 +188,24 @@ def Rename_filename():
         return Russian_menu()
 
     else:
-        path = input('Enter the full name of the file along with the directory you want to rename: ')
+        path = input(
+            'Enter the full name of the file along with the directory you want to rename: ')
         if path:
             renamed = input('Enter a new name for the file: ')
             os.rename(path, renamed)
-            print(f'File with name {path} renamed to {renamed}!')        
+            print(f'File with name {path} renamed to {renamed}!')
         else:
             print(f"File with name {path} doesn't esixts!")
         return English_menu()
 
 
-
 def Write_to_file():
     all_files = []
-    
-    for root, dirs, files in os.walk("."):  
-       for filename in files:
-           path = os.path.join(root, filename)
-           all_files.append(path)
+
+    for root, dirs, files in os.walk("."):
+        for filename in files:
+            path = os.path.join(root, filename)
+            all_files.append(path)
 
     for i in all_files:
         print(i)
@@ -215,7 +220,7 @@ def Write_to_file():
         else:
             print(f'Файла с названием {Enter} не существует!')
         return Russian_menu()
-    
+
     else:
         Enter = input('Select the file to write: ')
         if Enter:
@@ -226,15 +231,15 @@ def Write_to_file():
         else:
             print(f"File with name {Enter} doesn't esixts!")
         return English_menu()
-    
+
 
 def Overwrite_file():
     all_files = []
-    
-    for root, dirs, files in os.walk("."):  
-       for filename in files:
-           path = os.path.join(root, filename)
-           all_files.append(path)
+
+    for root, dirs, files in os.walk("."):
+        for filename in files:
+            path = os.path.join(root, filename)
+            all_files.append(path)
 
     for i in all_files:
         print(i)
@@ -249,7 +254,7 @@ def Overwrite_file():
         else:
             print(f'Файла с названием {Enter} не существует!')
         return Russian_menu()
-    
+
     else:
         Enter = input('Select the file to write: ')
         if Enter:
@@ -291,23 +296,24 @@ def Create_file():
         print(f'File with name {Enter} created!')
         return English_menu()
 
+
 def Create_folder():
 
     if language:
         Enter = input('Введите название новой папки: ')
-    
+
         if not os.path.isdir(Enter):
             os.mkdir(Enter)
             print(f'Папка с названием {Enter} создана!')
             return Russian_menu()
-    
+
         else:
             print(f'Папка с названием {Enter} уже существует!')
             return Russian_menu()
-    
+
     else:
         Enter = input('Enter the name of the new folder: ')
-    
+
         if not os.path.isdir(Enter):
             os.mkdir(Enter)
             print(f'Folder with name {Enter} is created!')
@@ -320,7 +326,7 @@ def Create_folder():
 while True:
 
     entered_language = input(
-    '''
+        '''
     Please select a language to continue working with File Manager.
     • English
     • Русский
@@ -332,24 +338,26 @@ while True:
     if entered_language.lower() == 'русский':
         language = True
         print(
-'''--------------------------------------------------------------------------
+            '''--------------------------------------------------------------------------
     Вас приветствует Файловый Менеджер!
 
     Ваше текущее расположение:''', os.getcwd(),
-    '\n\n    Список файлов и папок в текущей папке:\n\n   ', os.listdir(path='.'), 
-    '\n\n    Возможные запросы:')
+            '\n\n    Список файлов и папок в текущей папке:\n\n   ', os.listdir(
+                path='.'),
+            '\n\n    Возможные запросы:')
         Russian_menu()
         break
-    
+
     elif entered_language.lower() == 'english':
         language = False
         print(
-'''--------------------------------------------------------------------------
+            '''--------------------------------------------------------------------------
     File Manager welcomes you!
 
     Your current location:''', os.getcwd(),
-    '\n\n    All files and folders in the current folder:\n\n   ', os.listdir(path='.'), 
-    '\n\n    Possible requests:')
+            '\n\n    All files and folders in the current folder:\n\n   ', os.listdir(
+                path='.'),
+            '\n\n    Possible requests:')
         English_menu()
         break
 
@@ -405,8 +413,9 @@ while True:
             Create_folder()
 
         else:
-            print('Введен некорректный запрос. Введите один из вышеперечисленных запросов.') 
-    
+            print(
+                'Введен некорректный запрос. Введите один из вышеперечисленных запросов.')
+
     # If language is "English"
     else:
 

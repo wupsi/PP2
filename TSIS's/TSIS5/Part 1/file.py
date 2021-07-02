@@ -50,7 +50,7 @@ else:
 
     # Read files
     if Request_number == 1:
-        print(open('raw.txt').read()) 
+        print(open('raw.txt').read())
 
     # Read first n lines
     if Request_number == 2:
@@ -74,7 +74,7 @@ else:
 
         with open('raw.txt') as end:
             for line in islice(end, cnt_line() - n, cnt_line()):
-                print(line, end = '')
+                print(line, end='')
 
     # Read a file and save to list
     if Request_number == 5:
@@ -108,19 +108,20 @@ else:
                 i = i.replace(' ', '\n')
                 txt_list += i.split('\n')
                 txt_list = list(filter(None, txt_list))
-            
+
             for i in range(len(txt_list)):
                 if len(txt_list[i]) > len(first_longest_word):
                     first_longest_word = txt_list[i]
-                
+
                 if len(txt_list[i]) >= len(last_longest_word):
                     last_longest_word = txt_list[i]
 
         if first_longest_word != last_longest_word:
-            print(f'First longest word in file: {first_longest_word}\nLast longest word in file: {last_longest_word}')
+            print(
+                f'First longest word in file: {first_longest_word}\nLast longest word in file: {last_longest_word}')
         else:
             print(f'Longest word in file: {first_longest_word}')
-            
+
     # Number of lines in the file
     if Request_number == 9:
         print(cnt_line())
@@ -167,7 +168,7 @@ else:
     if Request_number == 14:
         with open('copy.txt') as copy, open('raw.txt') as raw:
             for copy_line, raw_line in zip(copy, raw):
-                print(copy_line, raw_line, end = '')
+                print(copy_line, raw_line, end='')
 
     #  Read a random line from a file
     if Request_number == 15:
@@ -178,14 +179,15 @@ else:
     # Checking for file existence
     if Request_number == 16:
         print('Enter file name:')
-        print('File exists!') if os.path.exists(input()) else print("File doesn't exists.")
+        print('File exists!') if os.path.exists(
+            input()) else print("File doesn't exists.")
 
     # Remove newline characters from a file
     if Request_number == 17:
         with open('raw.txt') as raw:
             lines = raw.readlines()
             for i in lines:
-                print(i.rstrip('\n'), end = ' ')
+                print(i.rstrip('\n'), end=' ')
 
     # Number of words in file
     if Request_number == 18:
@@ -214,25 +216,25 @@ else:
     # Create 26 txt files named A-Z.txt
     if Request_number == 20:
         alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        
+
         if os.path.exists('Letters'):
             pass
         else:
             os.mkdir('Letters')
-        
+
         for letters in alphabet:
             with open(letters + '.txt', 'w+') as text_file:
                 text_file.write(letters)
-        
+
         for letters in alphabet:
             os.replace(letters + '.txt', 'Letters/' + letters + '.txt')
         print('Files created!')
 
-    # Create a file where all letters of English alphabet are listed by n number of letters on each line. 
+    # Create a file where all letters of English alphabet are listed by n number of letters on each line.
     if Request_number == 21:
         print('Enter n:')
         n = int(input())
-        
+
         if os.path.exists('Letters'):
             pass
         else:
@@ -240,8 +242,9 @@ else:
 
         with open('Letters.txt', 'w') as Letters_file:
             alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-            letters = [alphabet[i:i + n] + "\n" for i in range(0, len(alphabet), n)]
+            letters = [alphabet[i:i + n] +
+                       "\n" for i in range(0, len(alphabet), n)]
             Letters_file.writelines(letters)
-        
+
         os.replace('Letters.txt', 'Letters/Letters.txt')
         print('File created!')

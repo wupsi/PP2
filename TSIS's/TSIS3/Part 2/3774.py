@@ -8,7 +8,7 @@ for i in range(1, n):
     else:
         parent_tree[family[1]] += family[0].split()
 
-while n // 2 > 0:    
+while n // 2 > 0:
     n -= 1
     for key, value in parent_tree.items():
         for i in range(len(value)):
@@ -21,11 +21,11 @@ family_list = list(family_set)
 family_list.sort()
 
 for i in range(len(family_list)):
-    if  len(set(''.join([
-        str(len(set(value))) if family_list[i] == key else '0' 
+    if len(set(''.join([
+        str(len(set(value))) if family_list[i] == key else '0'
             for key, value in parent_tree.items()]))) > 1:
-            print(family_list[i], *sorted(set(''.join([
-                str(len(set(value))) if family_list[i] == key else '0' 
-                    for key, value in parent_tree.items()])))[1])
-    else:    
+        print(family_list[i], *sorted(set(''.join([
+            str(len(set(value))) if family_list[i] == key else '0'
+            for key, value in parent_tree.items()])))[1])
+    else:
         print(family_list[i], '0')

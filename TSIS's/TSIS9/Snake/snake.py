@@ -1,6 +1,7 @@
 import pygame
 import os.path
 from random import randrange
+import pygame as pg
 
 SIZE = WIDTH, HEIGHT = (1050, 650)
 BLOCK = 50
@@ -16,9 +17,16 @@ score = 0
 
 pygame.init()
 surface = pygame.display.set_mode([WIDTH, HEIGHT])
+pygame.display.set_caption('анаконда')
 clock = pygame.time.Clock()
 font_score = pygame.font.SysFont('Arial', 32, bold=True)
 font_end = pygame.font.SysFont('Arial', 100, bold=True)
+background_img = pygame.image.load('background.jpg').convert()
+snake_img = pygame.image.load('snake.png').convert()
+tail_img = pygame.image.load('tail.jpg').convert()
+
+Class Main_menu():
+    def __init__(self):
 
 
 def scores():
@@ -44,14 +52,33 @@ def scores():
         with open('scores.txt', 'w') as best_score:
             best_score.write(f'Best score: {score}\nScore: {score}')
 
+def game_over():
+    while True: 
+        render_end = font_end.render('GAME OVER', 1, pygame.Color('orange'))
+        surface.blit(render_end, ((WIDTH - BLOCK) // 4, (HEIGHT - BLOCK) // 2 - 20))
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                scores()
+                exit()
+        pygame.display.flip()
 
-while True:
-    surface.fill(pygame.Color('black'))
-    # drawing snake, apple
-    [pygame.draw.rect(surface, pygame.Color('green'),
-                      (i, j, BLOCK - 1, BLOCK - 1)) for i, j in snake]
+Running = True
+while Running:
+    surface.blit(background_img, (0, 0))
+    
+    # drawing snake's tail
+    for i, j in snake:
+        pygame.draw.rect(surface, pygame.Color('green'),
+                      (i, j, BLOCK, BLOCK))
+        surface.blit(tail_img, (i, j))
+    
+    # apple
     pygame.draw.rect(surface, pygame.Color('red'), (*apple, BLOCK, BLOCK))
-
+    
+    # snake's head
+    surface.blit(snake_img, (x, y)) 
+    
     # show score
     render_score = font_score.render(
         f'SCORE: {score}', 1, pygame.Color('orange'))
@@ -70,18 +97,9 @@ while True:
         score += 1
 
     # game over
-    if x < -BLOCK or x > WIDTH or y < -BLOCK or y > HEIGHT or len(snake) != len(set(snake)):
-        while True:
-            render_end = font_end.render(
-                'GAME OVER', 1, pygame.Color('orange'))
-            surface.blit(render_end, ((WIDTH - BLOCK) //
-                         4, (HEIGHT - BLOCK) // 2 - 20))
-            pygame.display.flip()
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    scores()
-                    exit()
-
+    if x < 0 or x > WIDTH - BLOCK or y < 0 or y > HEIGHT - BLOCK or len(snake) != len(set(snake)):
+        game_over()
+    
     pygame.display.flip()
     clock.tick(fps)
 

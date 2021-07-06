@@ -1,3 +1,122 @@
+'''
+Размер меню: 650x650
+-------------------------------------------------
+
+                Главное Меню:
+                                Лучший результат
+                   Start
+                   Exit
+                                    Общие очки
+
+Exit - выход из игры
+-------------------------------------------------
+
+                  Старт Меню:
+                                Лучший результат
+
+        >1 Player<            >2 Player<
+
+            <- Back to main menu
+
+                                    Общие очки
+
+-------------------------------------------------
+                
+                >1 Player< Меню
+                                Лучший результат
+
+                    >Easy<
+
+                    >Medium<
+
+                    >Hard<
+                    
+                                    Общие очки
+
+-------------------------------------------------
+                
+                >2 Player< Меню
+                                Лучший результат
+
+                    >Easy<
+
+                    >Medium<
+
+                    >Hard<
+                    
+                                    Общие очки
+
+-------------------------------------------------
+Сложность Easy:
+    1 Player:
+        Размер карты: 650x650
+        Скорость: обычная(8 FPS)
+        Стены: нет
+        Яблок: 3
+
+    2 Player:
+        Размер карты: 1050x650
+        Скорость: обычная(8 FPS)
+        Стены: нет
+        Яблок: 5
+-------------------------------------------------------------------------
+
+Сложность Medium:
+    1 Player:
+        Размер карты: 650x650
+        Скорость: ускоряющаяся(8 FPS, +1 после каждого второго яблока)
+        Стены: есть
+        Яблок: 2
+    
+    2 Player:
+        Размер карты: 1050x650
+        Скорость: ускоряющаяся(8 FPS, +1 после каждого второго яблока)
+        Стены: есть
+        Яблок: 4
+-------------------------------------------------------------------------
+
+Сложность Hard:
+    1 Player:
+        Размер карты: 650x650
+        Скорость: ускоряющаяся(8 FPS, +1 после каждого яблока)
+        Карта со стенами:
+        [w, w, w, w, w, w, w, w, w, w, w, w, w]
+        [w, W, 0, 0, 0, 0, W, 0, 0, 0, 0, W, w]
+        [w, 0, 0, W, 0, 0, W, 0, 0, W, 0, 0, w]
+        [w, 0, W, W, W, 0, 0, 0, W, W, W, 0, w]
+        [w, 0, 0, W, 0, 0, 0, 0, 0, W, 0, 0, w]
+        [w, 0, 0, 0, 0, 0, W, 0, 0, 0, 0, 0, w]
+        [w, W, W, 0, 0, W, W, W, 0, 0, W, W, w]
+        [w, 0, 0, 0, 0, 0, W, 0, 0, 0, 0, 0, w]
+        [w, 0, 0, W, 0, 0, 0, 0, 0, W, 0, 0, w]
+        [w, 0, W, W, W, 0, 0, 0, W, W, W, 0, w]
+        [w, 0, 0, W, 0, 0, W, 0, 0, W, 0, 0, w]
+        [w, W, 0, 0, 0, 0, W, 0, 0, 0, 0, W, w]
+        [w, w, w, w, w, w, w, w, w, w, w, w, w]
+        
+        Яблок: 2
+==============================
+
+    2 Player:
+        Размер карты: 1050x650
+        Скорость: ускоряющаяся(8 FPS, +1 после каждого яблока)
+        Карта со стенами:
+        [w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w]
+        [w, W, 0, 0, 0, 0, 0, W, 0, 0, W, 0, 0, W, 0, 0, 0, 0, 0, W, w]
+        [w, 0, 0, W, 0, 0, 0, 0, 0, 0, W, 0, 0, 0, 0, 0, 0, W, 0, 0, w]
+        [w, 0, W, W, W, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, W, W, W, 0, w]
+        [w, 0, 0, W, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, W, 0, 0, w]
+        [w, 0, 0, 0, 0, 0, 0, 0, 0, 0, W, 0, 0, 0, 0, 0, 0, 0, 0, 0, w]
+        [w, W, W, 0, 0, 0, 0, 0, 0, W, W, W, 0, 0, 0, 0, 0, 0, W, W, w]
+        [w, 0, 0, 0, 0, 0, 0, 0, 0, 0, W, 0, 0, 0, 0, 0, 0, 0, 0, 0, w]
+        [w, 0, 0, W, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, W, 0, 0, w]
+        [w, 0, W, W, W, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, W, W, W, 0, w]
+        [w, 0, 0, W, 0, 0, 0, 0, 0, 0, W, 0, 0, 0, 0, 0, 0, W, 0, 0, w]
+        [w, W, 0, 0, 0, 0, 0, W, 0, 0, W, 0, 0, W, 0, 0, 0, 0, 0, W, w]
+        [w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w, w]
+
+        Яблок: 3
+'''
 import pygame
 import os.path
 from random import randrange
@@ -14,21 +133,41 @@ dirs = {'W': True, 'A': True, 'S': True, 'D': True}
 fps = 10
 dx, dy = 0, 0
 score = 0
+Running = True
 
 pygame.init()
 surface = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption('анаконда')
 clock = pygame.time.Clock()
+font_start = pygame.font.Font('font.ttf', 100)
+font_exit = pygame.font.Font('font.ttf', 100)
 font_score = pygame.font.SysFont('Arial', 32, bold=True)
+font_best_score = pygame.font.Font('font.ttf', 100)
 font_end = pygame.font.SysFont('Arial', 100, bold=True)
 background_img = pygame.image.load('background.jpg').convert()
 snake_img = pygame.image.load('snake.png').convert()
 tail_img = pygame.image.load('tail.jpg').convert()
 
-Class Main_menu():
-    def __init__(self):
+def main_menu():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                exit()
+        
+        surface.fill('black')
+        render_best_score = font_best_score.render('BEST SCORE:', 1, pygame.Color('black')) 
+        render_start = font_start.render('START', 1, pygame.Color('black'))
+        render_exit = font_exit.render('EXIT', 1, pygame.Color('black'))
+        surface.blit(background_img, (0, 0))
+        surface.blit(render_start, (450, 400))
+        surface.blit(render_exit, (470, 500))
+        surface.blit(render_best_score, (680, 550))
+
+        pygame.display.flip()
+        clock.tick(fps)
 
 
+main_menu()
 def scores():
     if os.path.exists('scores.txt'):
         with open('scores.txt') as best_score:
@@ -63,7 +202,6 @@ def game_over():
                 exit()
         pygame.display.flip()
 
-Running = True
 while Running:
     surface.blit(background_img, (0, 0))
     
@@ -80,8 +218,7 @@ while Running:
     surface.blit(snake_img, (x, y)) 
     
     # show score
-    render_score = font_score.render(
-        f'SCORE: {score}', 1, pygame.Color('orange'))
+    render_score = font_score.render(f'SCORE: {score}', 1, pygame.Color('orange'))
     surface.blit(render_score, (5, 5))
 
     # snake movement
@@ -98,6 +235,7 @@ while Running:
 
     # game over
     if x < 0 or x > WIDTH - BLOCK or y < 0 or y > HEIGHT - BLOCK or len(snake) != len(set(snake)):
+        Running = False
         game_over()
     
     pygame.display.flip()

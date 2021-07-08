@@ -1,5 +1,3 @@
-import re
-
 n = int(input())
 d, cities = {}, []
 for i in range(n):

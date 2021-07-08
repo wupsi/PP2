@@ -1,8 +1,12 @@
-with open('input.txt') as txt:
-    temp = ''
-    for line in txt:
-        if len(line) < len(temp):
-            print('NO')
-            exit()
-        temp = line
-    print('YES')
+inp = input()
+k = input()
+ex, ans = [], []
+for i in range(len(inp)):
+    if inp[i] == k:
+        ex.append(i)
+for i in range(len(inp)):
+    temp = []
+    for j in range(len(ex)):
+        temp.append(abs(ex[j] - i))
+    ans.append(min(temp))
+print(ans)

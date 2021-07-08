@@ -1,13 +1,7 @@
-arr1 = list(map(int, input().split()))
-arr2 = list(map(int, input().split()))
-n, m = map(int, input().split())
+arr = list(map(int, input().split()))
 cnt = 0
-try:
-    for i in range(n, m):
-        if arr1[i]:
+for i in range(len(arr)):
+    for j in range(i + 1,len(arr)):
+        if arr[i] == arr[j]:
             cnt += 1
-        if arr2[i]:
-            cnt += 1
-except:
-    pass
 print(cnt)

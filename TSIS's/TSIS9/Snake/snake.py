@@ -179,10 +179,10 @@ def play_menu():
                 return main_menu()
             if event.type == pygame.MOUSEBUTTONDOWN and mx >= 260 and my >= 550\
                                                     and mx <= 470 and my <= 610:
-                return
+                return '1 Player'
             if event.type == pygame.MOUSEBUTTONDOWN and mx >= 560 and my >= 550\
                                                     and mx <= 770 and my <= 610:
-                return 
+                return '2 Player'
         with open('Data/Scores/scores.txt') as txt:
             best_score = re.findall(r'Best score: (\d+)', txt.read())
         
@@ -249,7 +249,7 @@ def scores():
         with open('Data/Scores/scores.txt', 'w') as best_score:
             best_score.write(f'Best score: {score}\nScore: {score}')
 
-def One_Player():
+if main_menu() == '1 Player':
     while True:
         surface.blit(background_game, (0, 0))
 
@@ -309,64 +309,3 @@ def One_Player():
             if dirs['D']:
                 dx, dy = 1, 0
                 dirs = {'W': True, 'A': False, 'S': True, 'D': True}
-
-main_menu()
-while True:
-    surface.blit(background_game, (0, 0))
-
-    # drawing snake's tail
-    for i, j in snake:
-        pygame.draw.rect(surface, pygame.Color('green'), (i, j, BLOCK, BLOCK))
-        surface.blit(tail_img, (i, j))
-        
-    # apple
-    pygame.draw.rect(surface, pygame.Color('red'), (*apple, BLOCK, BLOCK))
-    
-    # snake's head
-    surface.blit(snake_img, (x, y)) 
-        
-    # show score
-    render_score = font_score.render(f'SCORE: {score}', 1, pygame.Color('orange'))
-    surface.blit(render_score, (5, 5))
-
-    # snake movement
-    x += dx * BLOCK
-    y += dy * BLOCK
-    snake.append((x, y))
-    snake = snake[-length:]
-
-    # eating apple
-    if snake[-1] == apple:
-        apple = randrange(BLOCK, WIDTH, BLOCK), randrange(BLOCK, HEIGHT, BLOCK)
-        length += 1
-        score += 1
-
-    # game over
-    if x < 0 or x > WIDTH - BLOCK or y < 0 or y > HEIGHT - BLOCK or len(snake) != len(set(snake)):
-        game_over()
-        
-    pygame.display.flip()
-    clock.tick(fps)
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            exit()
-
-    # control
-    key = pygame.key.get_pressed()
-    if key[pygame.K_w]:
-        if dirs['W']:
-            dx, dy = 0, -1
-            dirs = {'W': True, 'A': True, 'S': False, 'D': True}
-    elif key[pygame.K_s]:
-        if dirs['S']:
-            dx, dy = 0, 1
-            dirs = {'W': False, 'A': True, 'S': True, 'D': True}
-    elif key[pygame.K_a]:
-        if dirs['A']:
-            dx, dy = -1, 0
-            dirs = {'W': True, 'A': True, 'S': True, 'D': False}
-    elif key[pygame.K_d]:
-        if dirs['D']:
-            dx, dy = 1, 0
-            dirs = {'W': True, 'A': False, 'S': True, 'D': True}

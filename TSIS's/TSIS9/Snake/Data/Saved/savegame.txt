@@ -1,0 +1,10 @@
+difficult = 1 Player - medium
+apple = (50, 150)
+apple1 = (950, 50)
+fps = 10
+score = 2
+x, y = 450, 200
+dx, dy = 0, -1
+length = 3
+snake = [(450, 300), (450, 250), (450, 200)]
+dirs = {'W': True, 'A': True, 'S': False, 'D': True}

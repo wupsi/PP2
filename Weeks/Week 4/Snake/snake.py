@@ -523,8 +523,8 @@ if '1 Player' in difficult:
             pygame.draw.rect(surface, pygame.Color('gray'), (500, 550, BLOCK, BLOCK))
 
         # show score
-        render_score = font_menu.render(f'SCORE: {score}', 1, pygame.Color('black'))
-        surface.blit(render_score, (5, 5))
+        render_score = font_difficult.render(f'SCORE: {score}', 1, pygame.Color('black'))
+        surface.blit(render_score, (5, 0))
         # snake movement
         x += dx * BLOCK
         y += dy * BLOCK
@@ -696,10 +696,10 @@ if '2 Player' in difficult:
             pygame.draw.rect(surface, pygame.Color('gray'), (500, 550, BLOCK, BLOCK))
         
         # show score
-        render_score_snake1 = font_menu.render(f'SCORE: {score_snake1}', 1, pygame.Color('black'))
-        surface.blit(render_score_snake1, (5, 5))
-        render_score_snake2 = font_menu.render(f'SCORE: {score_snake2}', 1, pygame.Color('black'))
-        surface.blit(render_score_snake2, (830, 5))
+        render_score_snake1 = font_difficult.render(f'SCORE: {score_snake1}', 1, pygame.Color('black'))
+        surface.blit(render_score_snake1, (5, 0))
+        render_score_snake2 = font_difficult.render(f'SCORE: {score_snake2}', 1, pygame.Color('black'))
+        surface.blit(render_score_snake2, (860, 0))
 
         # snake movement
         x += dx * BLOCK

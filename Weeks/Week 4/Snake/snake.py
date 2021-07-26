@@ -52,6 +52,7 @@ death = pygame.mixer.Sound("Data/Sounds/death.mp3")
 wasted = pygame.mixer.Sound("Data/Sounds/wasted.mp3")
 eat = pygame.mixer.Sound("Data/Sounds/eat.wav")
 game = pygame.mixer.Sound("Data/Sounds/game.mp3")
+gamemenu.play()
 
 def player1_game_over_menu():
     menu = True
@@ -243,7 +244,6 @@ def play_menu():
         clock.tick(fps)
 
 def main_menu():
-    gamemenu.play()
     menu = True
     while menu:
         for event in pygame.event.get():

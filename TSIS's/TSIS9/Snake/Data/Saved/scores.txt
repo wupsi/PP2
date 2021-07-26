@@ -1,4 +1,4 @@
 Best score: 28
 Easy: 28
-Medium: 17
+Medium: 19
 Hard: 8

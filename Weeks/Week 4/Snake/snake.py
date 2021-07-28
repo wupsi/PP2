@@ -19,7 +19,6 @@ dirs = {'W': True, 'A': True, 'S': True, 'D': True}
 fps = 10
 dx, dy = 0, 0
 score = 0
-game_overed = False
 
 # Display
 pygame.mixer.init()

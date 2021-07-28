@@ -55,15 +55,6 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.change_y
 
 class Game(object):
-    block_wall = None
-    block_food = None
-    all_blocks = None
-    player = None
-    game_over = False
-    game_win = False
-    collision = 0
-    score = 0
-
     def __init__(self):
         self.score = 0
         self.collision = 0

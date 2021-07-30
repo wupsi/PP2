@@ -1,3 +1,4 @@
+ans = []
 for i in range(int(input())):
     cnt = 0
     inp = input()
@@ -9,4 +10,6 @@ for i in range(int(input())):
                 for i in range(len(words)):
                     if (len(inp[i]) % 2 != 0 and i % 2 == 0) or (i % 2 != 0 and len(inp[i]) % 2 == 0):
                         cnt += 1
-    print('Seriously?') if cnt != len(words) else print('Wow! That is perfect')
+    if cnt != len(words): ans.append('Seriously?')
+    else: ans.append('Wow! That is perfect')
+print('\n'.join([x for x in ans]))

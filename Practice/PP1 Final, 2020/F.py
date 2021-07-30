@@ -1,11 +1,4 @@
-n, out = int(input()), []
-
-for i in range(n):
+# Adding Reversed Numbers
+for i in range(int(input())):
     a, b = map(str, input().split())
-    rev1, rev2 = int(a[::-1]), int(b[::-1])
-    ans = rev1 + rev2
-    ans = str(ans)[::-1]
-    out.append(int(ans))
-
-for i in out:
-    print(i)
+    print(int(str(int(a[::-1]) + int(b[::-1]))[::-1]))

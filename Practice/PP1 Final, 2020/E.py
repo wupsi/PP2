@@ -1,19 +1,17 @@
+# Perfect pizza
 n = int(input())
-useless = list(map(str, input().split()))
-m = int(input())
-pair, ingredients = [], []
+products = input().split()
+ans, ingredients = [], []
 
-for i in range(m):
-    item1, item2 = map(str, input().split())
-    pair.append(item1)
-    pair.append(item2)
-
+for i in range(int(input())):
+    ingredients.append(input().split())
 main = input()
 
-for i in range(len(pair)):
-    if i % 2 == 0 and main == pair[i]:
-        ingredients.append(pair[i + 1])
-    elif i % 2 == 1 and main == pair[i]:
-        ingredients.append(pair[i - 1])
+for i in range(len(ingredients)):
+    if main == ingredients[i][0]:
+        ans.append(ingredients[i][1])
+    elif main == ingredients[i][1]:
+        ans.append(ingredients[i][0])
 
-print(*sorted(ingredients))
+print(len(ans))
+print(*sorted(ans))

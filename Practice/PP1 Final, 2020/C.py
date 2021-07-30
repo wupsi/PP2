@@ -1,3 +1,4 @@
+# Fence
 n = int(input())
 colors = list(map(int, input().split()))
 maxs, index = {}, -1

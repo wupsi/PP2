@@ -1,7 +1,6 @@
-n, cnt = int(input()), 0
-change, list_keys, list_values = {}, [], []
-
-for i in range(n):
+# Nurbol hacker
+change, list_keys, list_values, cnt = {}, [], [], 0
+for i in range(int(input())):
     nick, rename = input().split()
     change[nick] = rename
 
@@ -13,7 +12,7 @@ for i in range(len(keys)):
         if keys[i] == values[j]:
             change[keys[j]] = values[i]
             cnt += 1
-
+print()
 list_items = list(change.items())
 for i in range(len(list_items)):
     print(*list_items[i])

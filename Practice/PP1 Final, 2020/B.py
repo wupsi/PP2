@@ -1,3 +1,4 @@
+# Triforce
 n, k = int(input()), 0
 
 for i in range(n * 2):

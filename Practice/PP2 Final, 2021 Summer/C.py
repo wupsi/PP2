@@ -1,5 +1,2 @@
-inp = input()
-with open('output.txt', 'w') as txt:
-    txt.write(f'Hi, {inp}')
-with open('output.txt') as txt:
-    print(txt.read())
+open('output.txt', 'w').write(f'Hi, {input()}')
+print(open('output.txt').read())
